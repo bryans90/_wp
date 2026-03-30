@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan | Electrical Engineering Student</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        header {
+            background: #003366;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+        section {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+        }
+        .contact-links a {
+            margin-right: 15px;
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bryan</h1>
+    <p>Electrical Engineering Student @ National Quemoy University</p>
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I am a student at NQU focusing on Electrical Engineering. I am passionate about solving complex problems and exploring the latest in circuit design and power systems.</p>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <ul>
+        <li><strong>Project Name 1:</strong> A brief description of a lab project or personal build you've worked on.</li>
+        <li><strong>Project Name 2:</strong> Mention another project, perhaps involving microcontrollers or renewable energy.</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Connect With Me</h2>
+    <div class="contact-links">
+        <a href="mailto:your-email@example.com">Email</a>
+        <a href="https://github.com/your-username">GitHub</a>
+        <a href="#">LinkedIn</a>
+    </div>
+</section>
+
+</body>
+</html>
