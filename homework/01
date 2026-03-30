@@ -3,72 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bryan | Electrical Engineering Student</title>
+    <title>Bryan | Philosophy & Engineering</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f9;
+        :root {
+            --portal-blue: #00aaff;
+            --portal-orange: #ff9900;
+            --dark: #202020;
+            --glass: rgba(255, 255, 255, 0.9);
         }
-        header {
-            background: #003366;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            border-radius: 8px;
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: #e0e0e0; 
+            color: #333; 
+            margin: 0; 
+            padding: 40px; 
         }
-        section {
-            background: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #003366;
-            border-bottom: 2px solid #003366;
-            padding-bottom: 5px;
-        }
-        .contact-links a {
-            margin-right: 15px;
-            color: #003366;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        .container { max-width: 850px; margin: 0 auto; background: var(--glass); padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        header { border-left: 8px solid var(--portal-blue); padding-left: 20px; margin-bottom: 40px; }
+        h1 { margin: 0; font-size: 3em; letter-spacing: -1px; }
+        .tagline { color: var(--portal-orange); font-weight: bold; text-transform: uppercase; }
+        
+        section { margin-bottom: 30px; }
+        h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; font-size: 1.4em; }
+        
+        .hobby-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+        
+        .highlight { font-weight: bold; color: var(--portal-blue); }
+        .quote { font-style: italic; color: #666; border-left: 3px solid #ccc; padding-left: 15px; margin: 20px 0; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Bryan</h1>
-    <p>Electrical Engineering Student @ National Quemoy University</p>
-</header>
+<div class="container">
+    <header>
+        <h1>BRYAN</h1>
+        <div class="tagline">National Quemoy University | Electrical Engineering</div>
+        <p>Combining the <strong>Logic of Philosophy</strong> with the <strong>Precision of Engineering</strong>.</p>
+    </header>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I am a student at NQU focusing on Electrical Engineering. I am passionate about solving complex problems and exploring the latest in circuit design and power systems.</p>
-</section>
+    <section>
+        <h2>The Philosophical Engineer</h2>
+        <p>I view Engineering through a philosophical lens: as the study of how logical structures manifest in the physical world. My goal is to apply rigorous analytical thinking to circuit design and power systems.</p>
+    </section>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <ul>
-        <li><strong>Project Name 1:</strong> A brief description of a lab project or personal build you've worked on.</li>
-        <li><strong>Project Name 2:</strong> Mention another project, perhaps involving microcontrollers or renewable energy.</li>
-    </ul>
-</section>
+    <section>
+        <h2>Interactive Logic & Gaming</h2>
+        <div class="card" style="border-right: 5px solid var(--portal-orange);">
+            <p><strong>Portal 1 & 2 (Valve):</strong> I am fascinated by these games not just for the story, but for their mastery of <span class="highlight">Spatial Reasoning</span> and <span class="highlight">Physics-Based Problem Solving</span>. Analyzing how portals conserve momentum is a great mental exercise for understanding complex system inputs and outputs.</p>
+        </div>
+    </section>
 
-<section id="contact">
-    <h2>Connect With Me</h2>
-    <div class="contact-links">
-        <a href="mailto:your-email@example.com">Email</a>
-        <a href="https://github.com/your-username">GitHub</a>
-        <a href="#">LinkedIn</a>
+    <div class="hobby-grid">
+        <section class="card">
+            <h2>Hardware Skills</h2>
+            <ul>
+                <li><strong>Computer Repair:</strong> Logical diagnosis and component replacement.</li>
+                <li><strong>System Optimization:</strong> Balancing performance and efficiency.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Personal Hobbies</h2>
+            <ul>
+                <li><strong>Fitness:</strong> Human-system maintenance and discipline.</li>
+                <li><strong>Inquiry:</strong> Engaging in deep discussions on any topic "under the sun."</li>
+            </ul>
+        </section>
     </div>
-</section>
+
+    <section>
+        <p style="text-align: center; color: #888; font-size: 0.9em;">
+            <em>"We do what we must because we can."</em> — Aperture Science
+        </p>
+    </section>
+</div>
 
 </body>
 </html>
