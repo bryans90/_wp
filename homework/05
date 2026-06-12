@@ -1,28 +1,52 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <title>編輯文章 - 簡易網誌</title>
-  <style>
-    body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-    h1 { color: #333; }
-    label { display: block; margin-top: 15px; font-weight: bold; }
-    input, textarea { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
-    textarea { height: 300px; }
-    .btn { display: inline-block; padding: 10px 20px; background: #2c6b9e; color: #fff; border: none; border-radius: 4px; cursor: pointer; margin-top: 15px; }
-    .btn:hover { background: #1a4a6e; }
-    .cancel { margin-left: 10px; color: #888; }
-  </style>
-</head>
-<body>
-  <h1>編輯文章</h1>
-  <form action="/post/<%= post.id %>/update" method="POST">
-    <label>標題</label>
-    <input type="text" name="title" value="<%= post.title %>" required>
-    <label>內容</label>
-    <textarea name="content" required><%= post.content %></textarea>
-    <button type="submit" class="btn">儲存</button>
-    <a href="/post/<%= post.id %>" class="cancel">取消</a>
-  </form>
-</body>
-</html>
+const express = require('express');
+const db = require('./db');
+
+const app = express();
+const PORT = 3000;
+
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => {
+  const posts = db.prepare('SELECT * FROM posts ORDER BY created_at DESC').all();
+  res.render('index', { posts });
+});
+
+app.get('/post/new', (req, res) => {
+  res.render('new');
+});
+
+app.post('/post/create', (req, res) => {
+  const { title, content } = req.body;
+  if (!title || !content) return res.status(400).send('標題和內容為必填');
+  db.prepare('INSERT INTO posts (title, content) VALUES (?, ?)').run(title, content);
+  res.redirect('/');
+});
+
+app.get('/post/:id', (req, res) => {
+  const post = db.prepare('SELECT * FROM posts WHERE id = ?').get(req.params.id);
+  if (!post) return res.status(404).send('文章不存在');
+  res.render('show', { post });
+});
+
+app.get('/post/:id/edit', (req, res) => {
+  const post = db.prepare('SELECT * FROM posts WHERE id = ?').get(req.params.id);
+  if (!post) return res.status(404).send('文章不存在');
+  res.render('edit', { post });
+});
+
+app.post('/post/:id/update', (req, res) => {
+  const { title, content } = req.body;
+  db.prepare('UPDATE posts SET title = ?, content = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?')
+    .run(title, content, req.params.id);
+  res.redirect('/post/' + req.params.id);
+});
+
+app.post('/post/:id/delete', (req, res) => {
+  db.prepare('DELETE FROM posts WHERE id = ?').run(req.params.id);
+  res.redirect('/');
+});
+
+app.listen(PORT, () => {
+  console.log(`Blog running at http://localhost:${PORT}`);
+});
